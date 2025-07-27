@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmaciones - Administración</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h2>Confirmaciones de Invitados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Nombre</th>
+        <th>Estado</th>
+        <th>Tipo de Documento</th>
+        <th>Número de Documento</th>
+        <th>Fecha de Confirmación</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-confirmaciones"></tbody>
+  </table>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAKh0yO1vIZNNZdd0W8SExZvN-Uh6UyRSc",
+      authDomain: "babyshowerflabp.firebaseapp.com",
+      projectId: "babyshowerflabp",
+      databaseURL: "https://babyshowerflabp-default-rtdb.firebaseio.com",
+      storageBucket: "babyshowerflabp.appspot.com",
+      messagingSenderId: "81594410327",
+      appId: "1:81594410327:web:07c5407622b03529784a12"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    const tabla = document.getElementById("tabla-confirmaciones");
+
+    db.ref("invitados").on("value", (snapshot) => {
+      tabla.innerHTML = "";
+      const data = snapshot.val();
+      let contador = 1;
+      for (const key in data) {
+        const invitado = data[key];
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td>${contador++}</td>
+          <td>${invitado.nombre || ""}</td>
+          <td>${invitado.estado || ""}</td>
+          <td>${invitado.tipoDocumento || ""}</td>
+          <td>${invitado.numeroDocumento || ""}</td>
+          <td>${invitado.fecha || ""}</td>
+        `;
+        tabla.appendChild(fila);
+      }
+    });
+  </script>
+</body>
+</html>
