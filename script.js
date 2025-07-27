@@ -22,7 +22,7 @@ const nombres = [
   "Juan Camilo Villegas", "Juan Lopez", "Jorsff Navarro Acuña", "Karen Vega", "Khaterine Hernandez",
   "Laura Alvarez", "Leandro Alvarez", "Lian Martinez", "Lina Mora Valderrama", "Lizeth Diaz Bolivar",
   "Lizzy Martinez", "Lourdes Maria Peña", "Luz marina Peña", "Maira Daza", "María Victoria Alfonso Diaz",
-  "María camila Mendoza", "Mateo Bautista", "Noemi Polo", "Raquel Peña", "Rafael Bautista",
+  "María camila Mendoza", "Mateo Bautista", "Naileth Lopez", "Noemi Polo", "Raquel Peña", "Rafael Bautista",
   "Sandra Mendoza", "Santiago Royero", "Saudith Garcia Caro", "Sebastián Diaz", "Sharon Alvarez",
   "Sofía Villegas", "Thalía Murillo", "Valentín Diaz Mendoza", "Valeria Peña", "Vanely Bohorquez",
   "Viviana Contreras", "Yaneth Peña", "Yoleida Castaño", "Zoraida Lopez"
